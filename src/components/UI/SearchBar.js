@@ -47,6 +47,7 @@ export default function SearchBar(props) {
         onBlur={handleBlur}
         onKeyDown={handleEnterPress}
         ref={inputRef}
+        placeholder={props.placeholder}
       />
       {enteredSearchValue && (
         <button className={style.button} type="button" onClick={handleClear}>

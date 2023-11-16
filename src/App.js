@@ -17,7 +17,11 @@ export default function App() {
 
   return (
     <div className="app">
-      <SearchBar onSearch={handleSearch} onClear={handleClear} />
+      <SearchBar
+        onSearch={handleSearch}
+        onClear={handleClear}
+        placeholder="Search"
+      />
       <p>
         {searchValue
           ? `You're searching for ${searchValue}`
