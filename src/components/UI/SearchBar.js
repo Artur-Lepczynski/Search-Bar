@@ -4,19 +4,19 @@ import { useRef, useState } from "react";
 export default function SearchBar(props) {
   const [enteredSearchValue, setEnteredSearchValue] = useState("");
 
-  const inputRef = useRef(null); 
+  const inputRef = useRef(null);
   const [inputIsFocused, setInputIsFocused] = useState(false);
 
-  function handleFocus(){
+  function handleFocus() {
     setInputIsFocused(true);
   }
 
-  function handleBlur(){
+  function handleBlur() {
     setInputIsFocused(false);
   }
 
-  function handleEnterPress(event){
-    if(event.key === "Enter"){
+  function handleEnterPress(event) {
+    if (event.key === "Enter") {
       handleSearch();
     }
   }
@@ -37,7 +37,9 @@ export default function SearchBar(props) {
   }
 
   return (
-    <div className={`${style.wrapper} ${inputIsFocused && style["input-focused"]}`}>
+    <div
+      className={`${style.wrapper} ${inputIsFocused && style["input-focused"]}`}
+    >
       <input
         className={style.input}
         type="text"
@@ -48,13 +50,24 @@ export default function SearchBar(props) {
         onKeyDown={handleEnterPress}
         ref={inputRef}
         placeholder={props.placeholder}
+        aria-label={props["aria-label"]}
       />
       {enteredSearchValue && (
-        <button className={style.button} type="button" onClick={handleClear}>
+        <button
+          className={style.button}
+          type="button"
+          onClick={handleClear}
+          aria-label="Clear search input"
+        >
           <i className="fa-solid fa-xmark"></i>
         </button>
       )}
-      <button className={style.button} type="button" onClick={handleSearch}>
+      <button
+        className={style.button}
+        type="button"
+        onClick={handleSearch}
+        aria-label="Submit search"
+      >
         <i className="fa-solid fa-magnifying-glass"></i>
       </button>
     </div>

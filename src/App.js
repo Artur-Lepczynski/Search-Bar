@@ -21,6 +21,7 @@ export default function App() {
         onSearch={handleSearch}
         onClear={handleClear}
         placeholder="Search"
+        aria-label="Search"
       />
       <p>
         {searchValue
